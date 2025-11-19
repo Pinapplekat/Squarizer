@@ -1,0 +1,87 @@
+.block{
+    background-color: rgb(41, 41, 41);
+    width: 100px;
+    height: 100px;
+    position: grid;
+    row-gap: 10px;
+    column-gap: 10px;
+    transition: all 0.1s;
+    border: 0px white solid;
+    border-radius: 3px;
+}
+
+#blocks{
+    display: grid;
+    grid-template-columns: repeat(9, 110px);
+    grid-template-rows: repeat(9,110px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: rgb(17, 17, 17);
+    transform: translate(-50%, -50%);
+    width: 980px;
+    height: 980px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+html{
+    background-color: rgb(7, 7, 7);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+span{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    z-index: 10;
+}
+
+button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(100, 100, 100);
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+}
+
+button:hover{
+    background-color: rgb(150, 150, 150);
+}
+
+.floating-window{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    background-color: rgb(30, 30, 30);
+    border: 2px solid white;
+    border-radius: 10px;
+    z-index: 20;
+    display: none;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#codespace textarea{
+    width: 100%;
+    height: calc(100% - 50px);
+    background-color: rgb(20, 20, 20);
+    color: white;
+    border: none;
+    resize: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    padding: 10px;
+    box-sizing: border-box;
+}
