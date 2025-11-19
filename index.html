@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,18 @@
     <title>Blocks</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <span id="coords"></span>
-    <button id="toggleCodespace">Code</button>
-    <div id="blocks">
-        
+    <div class="top-right">
+        <button id="toggleCodespace">Code</button>
+        <button id="export">Export</button>
+        <button id="import">Import</button>
+        <button id="challenges">Challenges</button>
+    </div>
+
+    <div id="blocks" class="floating-window">
+
         <div class="block"></div>
         <div class="block"></div>
         <div class="block"></div>
@@ -94,7 +102,101 @@
         <div class="block"></div>
         <div class="block"></div>
     </div>
+    <div id="challengeblocks" class="floating-window hidden">
 
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+    </div>
+    
+    
+    <div id="challengesSpace" class="floating-window">
+        <h2>Challenges</h2>
+        <div id="challengeList">
+            <!-- Challenges will be populated here -->
+             <button class="challenge" data-challenge-index="0">  
+            Absolute Value Gradient
+             </button>
+        </div>
+    </div>
     <div id="codespace" class="floating-window">
         <textarea id="code" spellcheck="false">// Write your code here!
 
@@ -103,5 +205,12 @@ return prettyColors % 16;
 </textarea>
         <button id="reload">Run Code</button>
     </div>
+    <div id="dataspace" class="floating-window">Paste Here
+        <textarea id="data" spellcheck="false">
+
+</textarea>
+        <button id="runImport">Submit</button>
+    </div>
 </body>
+
 </html>

@@ -21,11 +21,19 @@ var colors = {
     95: "#808080", 96: "#999999", 97: "#b3b3b3", 98: "#cccccc", 99: "#e6e6e6"
 }
 
-var blocks = document.querySelectorAll('.block')
-console.log(blocks)
+var selectedChallenge = null;
+
+var challengesData = [
+    [{ "x": "-4", "y": "4" }, { "x": "-3", "y": "4" }, { "x": "-2", "y": "4" }, { "x": "-1", "y": "4" }, { "x": "0", "y": "4" }, { "x": "1", "y": "4" }, { "x": "2", "y": "4" }, { "x": "3", "y": "4" }, { "x": "4", "y": "4" }, { "x": "-4", "y": "3" }, { "x": "-3", "y": "3" }, { "x": "-2", "y": "3" }, { "x": "-1", "y": "3" }, { "x": "0", "y": "3" }, { "x": "1", "y": "3" }, { "x": "2", "y": "3" }, { "x": "3", "y": "3" }, { "x": "4", "y": "3" }, { "x": "-4", "y": "2" }, { "x": "-3", "y": "2" }, { "x": "-2", "y": "2" }, { "x": "-1", "y": "2" }, { "x": "0", "y": "2" }, { "x": "1", "y": "2" }, { "x": "2", "y": "2" }, { "x": "3", "y": "2" }, { "x": "4", "y": "2" }, { "x": "-4", "y": "1" }, { "x": "-3", "y": "1" }, { "x": "-2", "y": "1" }, { "x": "-1", "y": "1" }, { "x": "0", "y": "1" }, { "x": "1", "y": "1" }, { "x": "2", "y": "1" }, { "x": "3", "y": "1" }, { "x": "4", "y": "1" }, { "x": "-4", "y": "0" }, { "x": "-3", "y": "0" }, { "x": "-2", "y": "0" }, { "x": "-1", "y": "0" }, { "x": "0", "y": "0" }, { "x": "1", "y": "0" }, { "x": "2", "y": "0" }, { "x": "3", "y": "0" }, { "x": "4", "y": "0" }, { "x": "-4", "y": "-1" }, { "x": "-3", "y": "-1" }, { "x": "-2", "y": "-1" }, { "x": "-1", "y": "-1" }, { "x": "0", "y": "-1" }, { "x": "1", "y": "-1" }, { "x": "2", "y": "-1" }, { "x": "3", "y": "-1" }, { "x": "4", "y": "-1" }, { "x": "-4", "y": "-2" }, { "x": "-3", "y": "-2" }, { "x": "-2", "y": "-2" }, { "x": "-1", "y": "-2" }, { "x": "0", "y": "-2" }, { "x": "1", "y": "-2" }, { "x": "2", "y": "-2" }, { "x": "3", "y": "-2" }, { "x": "4", "y": "-2" }, { "x": "-4", "y": "-3" }, { "x": "-3", "y": "-3" }, { "x": "-2", "y": "-3" }, { "x": "-1", "y": "-3" }, { "x": "0", "y": "-3" }, { "x": "1", "y": "-3" }, { "x": "2", "y": "-3" }, { "x": "3", "y": "-3" }, { "x": "4", "y": "-3" }, { "x": "-4", "y": "-4" }, { "x": "-3", "y": "-4" }, { "x": "-2", "y": "-4" }, { "x": "-1", "y": "-4" }, { "x": "0", "y": "-4" }, { "x": "1", "y": "-4" }, { "x": "2", "y": "-4" }, { "x": "3", "y": "-4" }, { "x": "4", "y": "-4" }]
+]
+
+var blocks = document.querySelectorAll('#blocks .block')
+// console.log(blocks)
+
+var blockList = []
 
 function load() {
-
+    blockList = []
     var x = -4
     var y = 4
     blocks.forEach(el => {
@@ -38,20 +46,37 @@ function load() {
         }
         const getColor = new Function('x', 'y', 'element', document.getElementById('code').value);
         var color = getColor(el.getAttribute('x'), el.getAttribute('y'), el)
+        if (color > 99 || color < 0) color = 90
+        el.setAttribute('color', color)
+        var blockInList = { x: el.getAttribute('x'), y: el.getAttribute('y'), color }
+        blockList.push(blockInList)
         el.style.backgroundColor = colors[color]
         el.style.filter = `drop-shadow(0 0 0.2rem ${colors[color]})`
-        el.addEventListener('mouseover', (e) => {
-            el.style.outline = '2px solid white'
-            document.getElementById('coords').innerText = `X: ${el.getAttribute('x')} Y: ${el.getAttribute('y')} Color: ${color}`
-        })
-        el.addEventListener('mouseout', (e) => {
-            el.style.outline = 'none'
-        })
+
     });
 }
 
+var allBlocks = document.querySelectorAll('.block')
+allBlocks.forEach(el => {
+    el.addEventListener('mouseover', (e) => {
+        el.style.outline = '2px solid white'
+        document.getElementById('coords').innerText = `X: ${el.getAttribute('x')} Y: ${el.getAttribute('y')} Color: ${el.getAttribute('color')}`
+    })
+    el.addEventListener('mouseout', (e) => {
+        el.style.outline = 'none'
+    })
+})
+
 load()
 document.getElementById('reload').addEventListener('click', load)
+
+document.getElementById('export').addEventListener('click', () => {
+    navigator.clipboard.writeText(JSON.stringify(blockList)).then(() => {
+        alert('Block data copied to clipboard!')
+    }).catch(err => {
+        alert('Failed to copy block data: ', err)
+    });
+})
 
 document.getElementById('toggleCodespace').addEventListener('click', () => {
     const codespace = document.getElementById('codespace');
@@ -61,6 +86,96 @@ document.getElementById('toggleCodespace').addEventListener('click', () => {
         codespace.style.display = 'block';
     }
 });
+
+document.getElementById('challenges').addEventListener('click', () => {
+    const challenges = document.getElementById('challengesSpace');
+    if (challenges.style.display === 'block') {
+        challenges.style.display = 'none';
+    } else {
+        challenges.style.display = 'block';
+    }
+});
+
+document.getElementById('import').addEventListener('click', () => {
+    const dataspace = document.getElementById('dataspace');
+    if (dataspace.style.display === 'block') {
+        dataspace.style.display = 'none';
+    } else {
+        dataspace.style.display = 'block';
+    }
+});
+
+document.getElementById('runImport').addEventListener('click', () => {
+    const data = document.getElementById('data').value;
+    try {
+        const importedBlocks = JSON.parse(data);
+        importedBlocks.forEach(block => {
+            blocks.forEach(el => {
+                if (el.getAttribute('x') == block.x && el.getAttribute('y') == block.y) {
+                    el.style.backgroundColor = colors[block.color];
+                    el.setAttribute('color', block.color);
+                    el.style.filter = `drop-shadow(0 0 0.2rem ${colors[block.color]})`;
+                }
+            });
+        });
+
+        if (compareBlockLists(importedBlocks, blockList)) alert('Imported block data is identical to current data.');
+        else blockList = importedBlocks;
+        alert('Block data imported successfully!');
+    } catch (err) {
+        alert('Failed to import block data: ' + err);
+    }
+});
+var challengeBlocks = []
+function loadChallengeToChallengeBlocks(challengeBlockList) {
+    console.log('Loading challenge:', challengeBlockList);
+    var challengeBlockFrame = document.getElementById('challengeblocks');
+    if (challengeBlockFrame.classList.contains('hidden')) {
+        challengeBlockFrame.classList.remove('hidden');
+    }
+    var challengeBlocks = document.querySelectorAll('#challengeblocks .block')
+    console.log('Selected challenge blocks:', challengeBlocks);
+    challengeBlocks.forEach(el => {
+        el.style.backgroundColor = 'black';
+        el.setAttribute('color', 90);
+        el.style.filter = `drop-shadow(0 0 0.2rem ${colors[90]})`;
+    });
+    console.log('Challenge blocks reset to default.');
+    var cx = -4
+    var cy = 4
+    challengeBlocks.forEach(el => {
+        el.setAttribute('x', cx)
+        el.setAttribute('y', cy)
+        cx++
+        if (cx > 4) {
+            cx = -4
+            cy--
+        }
+    });
+    console.log('Challenge blocks coordinates set.');
+    challengeBlockList.forEach(block => {
+        document.querySelectorAll('#challengeblocks .block').forEach(el => {
+            // console.log(`Checking block at (${el.getAttribute('x')}, ${el.getAttribute('y')}) against challenge block at (${block.x}, ${block.y}) with color ${block.color}`);
+            if (el.getAttribute('x') == block.x && el.getAttribute('y') == block.y) {
+                console.log("success")
+                el.style.backgroundColor = colors[block.color];
+                el.setAttribute('color', block.color);
+                el.style.filter = `drop-shadow(0 0 0.2rem ${colors[block.color]})`;
+            }
+        });
+    });
+    console.log('Challenge blocks loaded with challenge data.');
+}
+
+var challengeButtons = document.querySelectorAll('.challenge');
+challengeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        var challengeIndex = button.getAttribute('data-challenge-index');
+        var challengeData = challengesData[challengeIndex];
+        loadChallengeToChallengeBlocks(challengeData);
+    });
+});
+// Make floating windows draggable
 
 document.body.querySelectorAll('.floating-window').forEach(window => {
     let isDragging = false;
@@ -81,3 +196,13 @@ document.body.querySelectorAll('.floating-window').forEach(window => {
         }
     });
 });
+
+function compareBlockLists(list1, list2) {
+    if (list1.length !== list2.length) return false;
+    for (let i = 0; i < list1.length; i++) {
+        if (list1[i].x !== list2[i].x || list1[i].y !== list2[i].y || list1[i].color !== list2[i].color) {
+            return false;
+        }
+    }
+    return true;
+}
