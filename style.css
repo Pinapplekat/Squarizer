@@ -1,4 +1,4 @@
-.block{
+.block {
     background-color: rgb(41, 41, 41);
     width: 100px;
     height: 100px;
@@ -10,28 +10,30 @@
     border-radius: 3px;
 }
 
-#blocks, #challengeblocks{
-    display: grid;
+#blocks,
+#challengeblocks {
+    display: grid !important;
     grid-template-columns: repeat(9, 110px);
-    grid-template-rows: repeat(9,110px);
-    position: absolute;
+    grid-template-rows: repeat(9, 110px);
+    position: absolute !important;
     top: 50%;
     left: 50%;
     background-color: rgb(17, 17, 17);
     transform: translate(-50%, -50%);
-    width: 980px;
-    height: 980px;
-    padding: 10px;
-    border-radius: 10px;
+    width: 980px !important;
+    height: 980px !important;
+    padding: 10px !important;
+    border-radius: 10px !important;
+    box-sizing: initial !important;
 }
 
-html{
+html {
     background-color: rgb(7, 7, 7);
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-span{
+span {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -39,8 +41,8 @@ span{
     z-index: 10;
 }
 
-button{
-    
+button {
+
     padding: 10px;
     font-size: 1rem;
     border-radius: 5px;
@@ -51,45 +53,87 @@ button{
     z-index: 10;
 }
 
-.top-right{
+.top-right {
     position: absolute;
     top: 10px;
     right: 10px;
 }
 
-button:hover{
+button:hover {
     background-color: rgb(150, 150, 150);
 }
 
-.floating-window{
+.floating-window {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 600px;
-    height: 400px;
+    min-width: 600px;
+    min-height: 400px;
     background-color: rgb(30, 30, 30);
     border: 2px solid white;
     border-radius: 10px;
     z-index: 20;
-    display: none;
+    /* display: none; */
     padding: 20px;
     box-sizing: border-box;
 }
 
-#codespace textarea{
+#codespace textarea {
     width: 100%;
-    height: calc(100% - 50px);
+    min-height: calc(100% - 50px);
     background-color: rgb(20, 20, 20);
     color: white;
     border: none;
-    resize: none;
+    resize: vertical;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1rem;
     padding: 10px;
     box-sizing: border-box;
 }
 
-.hidden{
+.hidden {
     display: none !important;
+}
+
+#objectiveContainer {
+    width: 1010px;
+    height: 1100px;
+    padding: 20px;
+}
+#challengeblocks {
+    width: 980px;
+    height: 980px;
+    padding: 10px;
+    top: 100%;
+    transform: translate(-50%, -100%);
+}
+
+#closeChallenges, #closeDataspace, #closeCodespace {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgb(200, 50, 50);
+}
+
+.accuracy {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    font-size: 1.2rem;
+    margin-left: 20px;
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgb(50, 150, 50);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    font-size: 1rem;
+    z-index: 1000;
+    opacity: 0.9;
 }

@@ -24,7 +24,9 @@ var colors = {
 var selectedChallenge = null;
 
 var challengesData = [
-    [{ "x": "-4", "y": "4" }, { "x": "-3", "y": "4" }, { "x": "-2", "y": "4" }, { "x": "-1", "y": "4" }, { "x": "0", "y": "4" }, { "x": "1", "y": "4" }, { "x": "2", "y": "4" }, { "x": "3", "y": "4" }, { "x": "4", "y": "4" }, { "x": "-4", "y": "3" }, { "x": "-3", "y": "3" }, { "x": "-2", "y": "3" }, { "x": "-1", "y": "3" }, { "x": "0", "y": "3" }, { "x": "1", "y": "3" }, { "x": "2", "y": "3" }, { "x": "3", "y": "3" }, { "x": "4", "y": "3" }, { "x": "-4", "y": "2" }, { "x": "-3", "y": "2" }, { "x": "-2", "y": "2" }, { "x": "-1", "y": "2" }, { "x": "0", "y": "2" }, { "x": "1", "y": "2" }, { "x": "2", "y": "2" }, { "x": "3", "y": "2" }, { "x": "4", "y": "2" }, { "x": "-4", "y": "1" }, { "x": "-3", "y": "1" }, { "x": "-2", "y": "1" }, { "x": "-1", "y": "1" }, { "x": "0", "y": "1" }, { "x": "1", "y": "1" }, { "x": "2", "y": "1" }, { "x": "3", "y": "1" }, { "x": "4", "y": "1" }, { "x": "-4", "y": "0" }, { "x": "-3", "y": "0" }, { "x": "-2", "y": "0" }, { "x": "-1", "y": "0" }, { "x": "0", "y": "0" }, { "x": "1", "y": "0" }, { "x": "2", "y": "0" }, { "x": "3", "y": "0" }, { "x": "4", "y": "0" }, { "x": "-4", "y": "-1" }, { "x": "-3", "y": "-1" }, { "x": "-2", "y": "-1" }, { "x": "-1", "y": "-1" }, { "x": "0", "y": "-1" }, { "x": "1", "y": "-1" }, { "x": "2", "y": "-1" }, { "x": "3", "y": "-1" }, { "x": "4", "y": "-1" }, { "x": "-4", "y": "-2" }, { "x": "-3", "y": "-2" }, { "x": "-2", "y": "-2" }, { "x": "-1", "y": "-2" }, { "x": "0", "y": "-2" }, { "x": "1", "y": "-2" }, { "x": "2", "y": "-2" }, { "x": "3", "y": "-2" }, { "x": "4", "y": "-2" }, { "x": "-4", "y": "-3" }, { "x": "-3", "y": "-3" }, { "x": "-2", "y": "-3" }, { "x": "-1", "y": "-3" }, { "x": "0", "y": "-3" }, { "x": "1", "y": "-3" }, { "x": "2", "y": "-3" }, { "x": "3", "y": "-3" }, { "x": "4", "y": "-3" }, { "x": "-4", "y": "-4" }, { "x": "-3", "y": "-4" }, { "x": "-2", "y": "-4" }, { "x": "-1", "y": "-4" }, { "x": "0", "y": "-4" }, { "x": "1", "y": "-4" }, { "x": "2", "y": "-4" }, { "x": "3", "y": "-4" }, { "x": "4", "y": "-4" }]
+[{"x":"-4","y":"4","color":8},{"x":"-3","y":"4","color":7},{"x":"-2","y":"4","color":6},{"x":"-1","y":"4","color":5},{"x":"0","y":"4","color":4},{"x":"1","y":"4","color":5},{"x":"2","y":"4","color":6},{"x":"3","y":"4","color":7},{"x":"4","y":"4","color":8},{"x":"-4","y":"3","color":7},{"x":"-3","y":"3","color":6},{"x":"-2","y":"3","color":5},{"x":"-1","y":"3","color":4},{"x":"0","y":"3","color":3},{"x":"1","y":"3","color":4},{"x":"2","y":"3","color":5},{"x":"3","y":"3","color":6},{"x":"4","y":"3","color":7},{"x":"-4","y":"2","color":6},{"x":"-3","y":"2","color":5},{"x":"-2","y":"2","color":4},{"x":"-1","y":"2","color":3},{"x":"0","y":"2","color":2},{"x":"1","y":"2","color":3},{"x":"2","y":"2","color":4},{"x":"3","y":"2","color":5},{"x":"4","y":"2","color":6},{"x":"-4","y":"1","color":5},{"x":"-3","y":"1","color":4},{"x":"-2","y":"1","color":3},{"x":"-1","y":"1","color":2},{"x":"0","y":"1","color":1},{"x":"1","y":"1","color":2},{"x":"2","y":"1","color":3},{"x":"3","y":"1","color":4},{"x":"4","y":"1","color":5},{"x":"-4","y":"0","color":4},{"x":"-3","y":"0","color":3},{"x":"-2","y":"0","color":2},{"x":"-1","y":"0","color":1},{"x":"0","y":"0","color":0},{"x":"1","y":"0","color":1},{"x":"2","y":"0","color":2},{"x":"3","y":"0","color":3},{"x":"4","y":"0","color":4},{"x":"-4","y":"-1","color":5},{"x":"-3","y":"-1","color":4},{"x":"-2","y":"-1","color":3},{"x":"-1","y":"-1","color":2},{"x":"0","y":"-1","color":1},{"x":"1","y":"-1","color":2},{"x":"2","y":"-1","color":3},{"x":"3","y":"-1","color":4},{"x":"4","y":"-1","color":5},{"x":"-4","y":"-2","color":6},{"x":"-3","y":"-2","color":5},{"x":"-2","y":"-2","color":4},{"x":"-1","y":"-2","color":3},{"x":"0","y":"-2","color":2},{"x":"1","y":"-2","color":3},{"x":"2","y":"-2","color":4},{"x":"3","y":"-2","color":5},{"x":"4","y":"-2","color":6},{"x":"-4","y":"-3","color":7},{"x":"-3","y":"-3","color":6},{"x":"-2","y":"-3","color":5},{"x":"-1","y":"-3","color":4},{"x":"0","y":"-3","color":3},{"x":"1","y":"-3","color":4},{"x":"2","y":"-3","color":5},{"x":"3","y":"-3","color":6},{"x":"4","y":"-3","color":7},{"x":"-4","y":"-4","color":8},{"x":"-3","y":"-4","color":7},{"x":"-2","y":"-4","color":6},{"x":"-1","y":"-4","color":5},{"x":"0","y":"-4","color":4},{"x":"1","y":"-4","color":5},{"x":"2","y":"-4","color":6},{"x":"3","y":"-4","color":7},{"x":"4","y":"-4","color":8}],
+[{"x":"-4","y":"4","color":70},{"x":"-3","y":"4","color":70},{"x":"-2","y":"4","color":0},{"x":"-1","y":"4","color":0},{"x":"0","y":"4","color":0},{"x":"1","y":"4","color":0},{"x":"2","y":"4","color":0},{"x":"3","y":"4","color":70},{"x":"4","y":"4","color":70},{"x":"-4","y":"3","color":70},{"x":"-3","y":"3","color":0},{"x":"-2","y":"3","color":70},{"x":"-1","y":"3","color":70},{"x":"0","y":"3","color":70},{"x":"1","y":"3","color":70},{"x":"2","y":"3","color":70},{"x":"3","y":"3","color":0},{"x":"4","y":"3","color":70},{"x":"-4","y":"2","color":0},{"x":"-3","y":"2","color":70},{"x":"-2","y":"2","color":0},{"x":"-1","y":"2","color":0},{"x":"0","y":"2","color":0},{"x":"1","y":"2","color":0},{"x":"2","y":"2","color":0},{"x":"3","y":"2","color":70},{"x":"4","y":"2","color":0},{"x":"-4","y":"1","color":0},{"x":"-3","y":"1","color":70},{"x":"-2","y":"1","color":0},{"x":"-1","y":"1","color":70},{"x":"0","y":"1","color":70},{"x":"1","y":"1","color":70},{"x":"2","y":"1","color":0},{"x":"3","y":"1","color":70},{"x":"4","y":"1","color":0},{"x":"-4","y":"0","color":0},{"x":"-3","y":"0","color":70},{"x":"-2","y":"0","color":0},{"x":"-1","y":"0","color":70},{"x":"0","y":"0","color":0},{"x":"1","y":"0","color":70},{"x":"2","y":"0","color":0},{"x":"3","y":"0","color":70},{"x":"4","y":"0","color":0},{"x":"-4","y":"-1","color":0},{"x":"-3","y":"-1","color":70},{"x":"-2","y":"-1","color":0},{"x":"-1","y":"-1","color":70},{"x":"0","y":"-1","color":70},{"x":"1","y":"-1","color":70},{"x":"2","y":"-1","color":0},{"x":"3","y":"-1","color":70},{"x":"4","y":"-1","color":0},{"x":"-4","y":"-2","color":0},{"x":"-3","y":"-2","color":70},{"x":"-2","y":"-2","color":0},{"x":"-1","y":"-2","color":0},{"x":"0","y":"-2","color":0},{"x":"1","y":"-2","color":0},{"x":"2","y":"-2","color":0},{"x":"3","y":"-2","color":70},{"x":"4","y":"-2","color":0},{"x":"-4","y":"-3","color":70},{"x":"-3","y":"-3","color":0},{"x":"-2","y":"-3","color":70},{"x":"-1","y":"-3","color":70},{"x":"0","y":"-3","color":70},{"x":"1","y":"-3","color":70},{"x":"2","y":"-3","color":70},{"x":"3","y":"-3","color":0},{"x":"4","y":"-3","color":70},{"x":"-4","y":"-4","color":70},{"x":"-3","y":"-4","color":70},{"x":"-2","y":"-4","color":0},{"x":"-1","y":"-4","color":0},{"x":"0","y":"-4","color":0},{"x":"1","y":"-4","color":0},{"x":"2","y":"-4","color":0},{"x":"3","y":"-4","color":70},{"x":"4","y":"-4","color":70}],
+[{"x":"-4","y":"4","color":70},{"x":"-3","y":"4","color":90},{"x":"-2","y":"4","color":70},{"x":"-1","y":"4","color":90},{"x":"0","y":"4","color":70},{"x":"1","y":"4","color":90},{"x":"2","y":"4","color":70},{"x":"3","y":"4","color":90},{"x":"4","y":"4","color":70},{"x":"-4","y":"3","color":90},{"x":"-3","y":"3","color":70},{"x":"-2","y":"3","color":90},{"x":"-1","y":"3","color":70},{"x":"0","y":"3","color":90},{"x":"1","y":"3","color":70},{"x":"2","y":"3","color":90},{"x":"3","y":"3","color":70},{"x":"4","y":"3","color":90},{"x":"-4","y":"2","color":70},{"x":"-3","y":"2","color":90},{"x":"-2","y":"2","color":70},{"x":"-1","y":"2","color":90},{"x":"0","y":"2","color":70},{"x":"1","y":"2","color":90},{"x":"2","y":"2","color":70},{"x":"3","y":"2","color":90},{"x":"4","y":"2","color":70},{"x":"-4","y":"1","color":90},{"x":"-3","y":"1","color":70},{"x":"-2","y":"1","color":90},{"x":"-1","y":"1","color":70},{"x":"0","y":"1","color":90},{"x":"1","y":"1","color":70},{"x":"2","y":"1","color":90},{"x":"3","y":"1","color":70},{"x":"4","y":"1","color":90},{"x":"-4","y":"0","color":70},{"x":"-3","y":"0","color":90},{"x":"-2","y":"0","color":70},{"x":"-1","y":"0","color":90},{"x":"0","y":"0","color":70},{"x":"1","y":"0","color":90},{"x":"2","y":"0","color":70},{"x":"3","y":"0","color":90},{"x":"4","y":"0","color":70},{"x":"-4","y":"-1","color":90},{"x":"-3","y":"-1","color":70},{"x":"-2","y":"-1","color":90},{"x":"-1","y":"-1","color":70},{"x":"0","y":"-1","color":90},{"x":"1","y":"-1","color":70},{"x":"2","y":"-1","color":90},{"x":"3","y":"-1","color":70},{"x":"4","y":"-1","color":90},{"x":"-4","y":"-2","color":70},{"x":"-3","y":"-2","color":90},{"x":"-2","y":"-2","color":70},{"x":"-1","y":"-2","color":90},{"x":"0","y":"-2","color":70},{"x":"1","y":"-2","color":90},{"x":"2","y":"-2","color":70},{"x":"3","y":"-2","color":90},{"x":"4","y":"-2","color":70},{"x":"-4","y":"-3","color":90},{"x":"-3","y":"-3","color":70},{"x":"-2","y":"-3","color":90},{"x":"-1","y":"-3","color":70},{"x":"0","y":"-3","color":90},{"x":"1","y":"-3","color":70},{"x":"2","y":"-3","color":90},{"x":"3","y":"-3","color":70},{"x":"4","y":"-3","color":90},{"x":"-4","y":"-4","color":70},{"x":"-3","y":"-4","color":90},{"x":"-2","y":"-4","color":70},{"x":"-1","y":"-4","color":90},{"x":"0","y":"-4","color":70},{"x":"1","y":"-4","color":90},{"x":"2","y":"-4","color":70},{"x":"3","y":"-4","color":90},{"x":"4","y":"-4","color":70}],
 ]
 
 var blocks = document.querySelectorAll('#blocks .block')
@@ -48,12 +50,29 @@ function load() {
         var color = getColor(el.getAttribute('x'), el.getAttribute('y'), el)
         if (color > 99 || color < 0) color = 90
         el.setAttribute('color', color)
-        var blockInList = { x: el.getAttribute('x'), y: el.getAttribute('y'), color }
+        var blockInList = { x: el.getAttribute('x'), y: el.getAttribute('y'), color: color }
         blockList.push(blockInList)
         el.style.backgroundColor = colors[color]
         el.style.filter = `drop-shadow(0 0 0.2rem ${colors[color]})`
 
     });
+    if (selectedChallenge !== null) {
+        var challengeData = challengesData[selectedChallenge];
+        document.querySelector('.accuracy').innerText = `Your Accuracy: ${compareBlockLists(challengeData, blockList).toFixed(2)}%`
+        if (compareBlockLists(challengeData, blockList) == 100) {
+            notify('Challenge completed!')
+        }
+    }
+}
+
+function notify(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.innerText = message;
+    document.body.appendChild(notification);
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
 }
 
 var allBlocks = document.querySelectorAll('.block')
@@ -84,6 +103,7 @@ document.getElementById('toggleCodespace').addEventListener('click', () => {
         codespace.style.display = 'none';
     } else {
         codespace.style.display = 'block';
+        bringToFront(codespace);
     }
 });
 
@@ -93,6 +113,7 @@ document.getElementById('challenges').addEventListener('click', () => {
         challenges.style.display = 'none';
     } else {
         challenges.style.display = 'block';
+        bringToFront(challenges);
     }
 });
 
@@ -102,7 +123,20 @@ document.getElementById('import').addEventListener('click', () => {
         dataspace.style.display = 'none';
     } else {
         dataspace.style.display = 'block';
+        bringToFront(dataspace);
     }
+});
+
+document.getElementById('closeChallenges').addEventListener('click', () => {
+    document.getElementById('challengesSpace').style.display = 'none';
+});
+
+document.getElementById('closeCodespace').addEventListener('click', () => {
+    document.getElementById('codespace').style.display = 'none';
+});
+
+document.getElementById('closeDataspace').addEventListener('click', () => {
+    document.getElementById('dataspace').style.display = 'none';
 });
 
 document.getElementById('runImport').addEventListener('click', () => {
@@ -129,7 +163,7 @@ document.getElementById('runImport').addEventListener('click', () => {
 var challengeBlocks = []
 function loadChallengeToChallengeBlocks(challengeBlockList) {
     console.log('Loading challenge:', challengeBlockList);
-    var challengeBlockFrame = document.getElementById('challengeblocks');
+    var challengeBlockFrame = document.getElementById('objectiveContainer');
     if (challengeBlockFrame.classList.contains('hidden')) {
         challengeBlockFrame.classList.remove('hidden');
     }
@@ -173,6 +207,11 @@ challengeButtons.forEach(button => {
         var challengeIndex = button.getAttribute('data-challenge-index');
         var challengeData = challengesData[challengeIndex];
         loadChallengeToChallengeBlocks(challengeData);
+        selectedChallenge = challengeIndex;
+        document.getElementById('challengesSpace').style.display = 'none';
+        document.getElementById('blocks').style.left = '75%'
+        document.getElementById('objectiveContainer').classList.remove('hidden');
+        document.getElementById('objectiveContainer').style.left = '25%';
     });
 });
 // Make floating windows draggable
@@ -181,7 +220,8 @@ document.body.querySelectorAll('.floating-window').forEach(window => {
     let isDragging = false;
     let offsetX, offsetY;
     window.addEventListener('mousedown', (e) => {
-        if (e.target !== window) return;
+        bringToFront(window);
+        if (e.target !== window && !e.target.classList.contains('block')) return;
         isDragging = true;
         offsetX = e.clientX - window.offsetLeft;
         offsetY = e.clientY - window.offsetTop;
@@ -198,11 +238,20 @@ document.body.querySelectorAll('.floating-window').forEach(window => {
 });
 
 function compareBlockLists(list1, list2) {
-    if (list1.length !== list2.length) return false;
+    if (list1.length !== list2.length) return 0;
+    var accuracy = 0;
     for (let i = 0; i < list1.length; i++) {
         if (list1[i].x !== list2[i].x || list1[i].y !== list2[i].y || list1[i].color !== list2[i].color) {
-            return false;
+            
+        }else {
+            accuracy++;
         }
     }
-    return true;
+    return accuracy/list1.length * 100;
+}
+document.body.style.setProperty('--top-z-index', 30);
+function bringToFront(element) {
+    element.style.zIndex = parseInt(getComputedStyle(document.body).getPropertyValue('--top-z-index')) + 1;
+    document.body.style.setProperty('--top-z-index', element.style.zIndex);
+    console.log('Bringing to front, new z-index:', toString(element.style.zIndex));
 }
