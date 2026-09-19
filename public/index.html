@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="game.js" defer></script>
+    <title>Blocks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-outline" id="cursorOutline">
+        
+    </div>
+    <div class="loadingscreen hidden" id="loadingscreen">
+        <div class="content" id="content">
+            <h1>Booting...</h1>
+            <div class="loader"></div>
+        </div>
+    </div>
+    <div id="startscreen">
+        <div class="start-content">
+            <h1 class="title">
+                Squarizer
+            </h1>
+            <div class="button-column">
+                <button class="main-button" id="play">Play</button>
+                <button class="main-button" id="viewChallenges">View Challenges</button>
+                <button class="main-button" id="optimizeScreen">Display Optimization</button>
+            </div>
+        </div>
+    </div>
+    <span id="coords"></span>
+    <div class="top-right hidden">
+        <button id="toggleCodespace">Code</button>
+        <button id="export">Export</button>
+        <button id="import">Import</button>
+        <button id="challenges">Challenges</button>
+    </div>
+
+    <div id="blocks" class="floating-window hidden">
+
+    </div>
+    <div id="objectiveContainer" class="floating-window hidden" style="color: white;">
+        <p>
+        <h2>Objective:</h2> 
+        </p><i class="accuracy">Your Accuracy: 0.00%</i>
+        <div id="challengeblocks">
+
+        </div>
+    </div>
+
+    <div id="challengesSpace" class="floating-window hidden">
+        <h2>Challenges</h2><button id="closeChallenges">x</button>
+        <div id="challengeList">
+            <!-- Challenges will be populated here -->
+        </div>
+    </div>
+    <div id="codespace" class="floating-window hidden"><button id="closeCodespace">x</button>
+        <textarea id="code" spellcheck="false">// Write your code here!
+
+return Math.abs(x)
+</textarea>
+        <button id="reload">Run Code</button>
+    </div>
+    <div id="dataspace" class="floating-window hidden">Paste Here<button id="closeDataspace">x</button>
+        <textarea id="data" spellcheck="false">
+
+</textarea>
+        <button id="runImport">Submit</button>
+    </div>
+</body>
+
+</html>
