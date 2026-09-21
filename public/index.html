@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="game.js" defer></script>
+    <script type="module" src="game/services/boot.js" defer></script>
     <title>Blocks</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,7 +12,7 @@
 <body>
     <div class="cursor" id="cursor"></div>
     <div class="cursor-outline" id="cursorOutline">
-        
+
     </div>
     <div class="loadingscreen hidden" id="loadingscreen">
         <div class="content" id="content">
@@ -28,12 +28,12 @@
             <div class="button-column">
                 <button class="main-button" id="play">Play</button>
                 <button class="main-button" id="viewChallenges">View Challenges</button>
-                <button class="main-button" id="optimizeScreen">Display Optimization</button>
+                <button class="main-button" id="optimizeScreen">Options</button>
             </div>
         </div>
     </div>
     <span id="coords"></span>
-    <div class="top-right hidden">
+    <div class="top-right hidden" id="topRight">
         <button id="toggleCodespace">Code</button>
         <button id="export">Export</button>
         <button id="import">Import</button>
@@ -71,6 +71,20 @@ return Math.abs(x)
 </textarea>
         <button id="runImport">Submit</button>
     </div>
+
+    <template id="windowTemplate">
+        <div class="floating-window hidden">
+            <div class="window-header-container">
+                <h2 class="window-title"></h2>
+                <div class="right-control-buttons">
+                    <button class="close-window">x</button>
+                </div>
+            </div>
+            <div class="window-content">
+
+            </div>
+        </div>
+    </template>
 </body>
 
 </html>

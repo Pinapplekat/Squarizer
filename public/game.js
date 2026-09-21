@@ -56,9 +56,11 @@ function loadMainScreen(){
     const mainScreen = document.getElementById('startscreen')
     playButton.addEventListener('click', (e) => {
         bootSequence()
-        hideWindow(mainScreen)
+        hideWindow(mainScreen, 'fade')
     })
 }
+
+loadMainScreen()
 
 loadCursor()
 
@@ -83,6 +85,9 @@ function bootSequence() {
             blockContainer.appendChild(block);
         }
     }
+
+    blockContainer.classList.remove('hidden');
+    document.getElementById('topRight').classList.remove('hidden');
 
     loadingText.innerText = 'Loading challenge blocks...';
 
@@ -221,11 +226,16 @@ function toggleWindow(wind){
     }
 }
 
-function hideWindow(wind){
-    wind.classList.add('closing')
+function hideWindow(wind, transition){
+    let transitions = {
+        fade: 'fade-out',
+        slide: 'closing'
+    }
+    let tClass = transitions[transition] || 'closing'
+    wind.classList.add(tClass)
     setTimeout(() => {
         wind.classList.add('hidden')
-        wind.classList.remove('closing')
+        wind.classList.remove(tClass)
     }, 300)
 }
 
@@ -239,6 +249,11 @@ function showWindow(wind){
 }
 
 function loadEvents() {
+    document.body.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.getElementById('startscreen').classList.remove('hidden');
+        }
+    })
     document.getElementById('reload').addEventListener('click', load);
 
     document.getElementById('export').addEventListener('click', () => {

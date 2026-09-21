@@ -1,15 +1,19 @@
 #startscreen{
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* width: 100vw; */
+    width: 100vw;
     height: 100vh;
     z-index: 9999;
     padding: 0;
     margin: 0;
-    /* background-color: black; */
+    background-color: rgba(0, 0, 0, 0.8);
     user-select: none;
+    overflow: hidden;
 }
 
 
@@ -112,6 +116,7 @@ html {
     color: white;
     font-family: "Arial Rounded MT Bold";
     cursor: none;
+    overflow: hidden;
 }
 
 span {
@@ -154,10 +159,14 @@ button:hover {
     border: 2px solid white;
     border-radius: 10px;
     z-index: 20;
-    padding: 20px;
+    padding: 0px;
     box-sizing: border-box;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
-    transition: transform 500ms !important;
+    transition: transform 500ms, opacity 300ms !important;
+}
+.fade-out{
+    transition: opacity 300ms;
+    opacity: 0;
 }
 .closing{
     transform: translate(-50%, -100vh) scale(0);
@@ -236,8 +245,8 @@ button:hover {
 
 .cursor{
     position: absolute;
-    width: 1vh;
-    height: 1vh;
+    width: 0.8vh;
+    height: 0.8vh;
     background-color: white;
     z-index: 9999999999;
     transform: translate(-50%, -50%);
@@ -246,13 +255,59 @@ button:hover {
 }
 .cursor-outline{
     position: absolute;
-    width: 3vh;
-    height: 3vh;
-    outline: 0.5vh solid rgb(255, 255, 255);
+    width: 2.4vh;
+    height: 2.4vh;
+    outline: 0.4vh solid rgb(255, 255, 255);
     opacity: 0.6;
     z-index: 9999999999;
     transform: translate(-50%, -50%);
     border-radius: 0.1vh;
     pointer-events: none;
     transition: all 100ms;
+    top: 0;
+    left: 0;
+}
+
+.window-header-container {
+    display: flex;
+    height: 40px;
+    background-color: rgb(50, 50, 50);
+    padding: 0px 10px;
+    user-select: none;
+}
+
+.window-header-container .window-title {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.window-header-container .right-control-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-control-buttons .close-window{
+    background-color: rgb(200, 50, 50);
+    transition: all 100ms;
+    width: 30px;
+    height: 30px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-window:hover{
+    background-color: rgb(255, 100, 100);
+}
+
+.window-content {
+    padding: 10px;
+    height: calc(100% - 40px);
+    overflow: auto;
 }
