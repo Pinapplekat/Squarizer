@@ -1,10 +1,10 @@
-import { Window } from '../services/windows.js'
+import { Window, getAppWindows } from '../services/windows.js'
 import { downloadBlocks } from '../services/download.js'
 import { loadBlocks } from '../services/load.js'
 
 class SaveLoadWindow extends Window {
     constructor(name){
-        super(name)
+        super({name})
         this.init()
     }
 
@@ -12,7 +12,7 @@ class SaveLoadWindow extends Window {
         const saveButton = document.createElement('button')
         saveButton.innerText = 'Save'
         saveButton.addEventListener('click', () => {
-            downloadBlocks()
+            downloadBlocks(getAppWindows("app.preview")[0])
             console.log('Game saved.')
         })
 
@@ -25,7 +25,7 @@ class SaveLoadWindow extends Window {
             fileInput.addEventListener('change', (event) => {
                 const file = event.target.files[0]
                 if(file){
-                    loadBlocks(file)
+                    loadBlocks(file, getAppWindows("app.preview")[0])
                 }
             })
             fileInput.click()

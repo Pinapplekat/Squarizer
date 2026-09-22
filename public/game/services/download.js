@@ -1,7 +1,6 @@
 // Downloads a .blocks file containing the current state of the game
-import {allBlocks} from '../state.js'
-
-export function downloadBlocks(){
+export function downloadBlocks(process){
+    let allBlocks = process.blockInfo.list
     const blob = new Blob([JSON.stringify(allBlocks)], {type: 'application/json'})
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')

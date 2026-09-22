@@ -94,21 +94,21 @@
     transform: scale(1.1);
 }
 
-#blocks,
+.block-container,
 #challengeblocks {
     display: grid;
     grid-template-columns: repeat(9, 110px);
     grid-template-rows: repeat(9, 110px);
-    position: absolute !important;
+    position: relative !important;
     top: 50%;
     left: 50%;
-    background-color: rgb(17, 17, 17);
     transform: translate(-50%, -50%);
-    width: 980px !important;
-    height: 980px !important;
-    padding: 10px !important;
-    border-radius: 10px !important;
-    box-sizing: initial !important;
+    width: 980px;
+    height: 980px;
+    border-radius: 10px;
+    box-sizing: initial;
+    margin: 0;
+    padding: 10px;
 }
 
 html {

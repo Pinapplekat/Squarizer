@@ -36,15 +36,23 @@ export function bringToFront(element) {
     console.log('Bringing to front, new z-index:', toString(element.style.zIndex));
 }
 
+export function getAppWindows(app){
+    console.log("all windows: ", activeWindows)
+    console.log("Windows found for "+app+": ", activeWindows.filter(win => win.data.app))
+    return activeWindows.filter(win => win.data.app === app)
+}
+
 export class Window {
-    constructor(name){
-        this.name = name
+    constructor(data){
+        this.data = data
         this.id = activeWindows[activeWindows.length-1]?.id + 1 || 0
         this.dom = document.getElementById('windowTemplate').content.cloneNode(true).children[0]
+        if(this.data.width) this.dom.style.width = this.data.width+"px"
+        if(this.data.height) this.dom.style.height = this.data.height+"px"
         this.dom.querySelector('.close-window').addEventListener('click', () => {
             this.exit()
         })
-        this.dom.querySelector('.window-title').innerText = this.name
+        this.dom.querySelector('.window-title').innerText = this.data.name
         this.dom.setAttribute('id', `window-${this.id}`)
         document.body.appendChild(this.dom)
 
@@ -53,7 +61,7 @@ export class Window {
         this.drag()
         this.bringToFront()
 
-        console.log(`Window ${this.name} created with process ID ${this.id}`)
+        console.log(`Window ${this.data.name} created with process ID ${this.id}`)
     }
 
     enter(){
@@ -96,7 +104,7 @@ export class Window {
     exit(){
         this.dom.remove()
         activeWindows.splice(activeWindows.indexOf(this), 1)
-        console.log(`Window ${this.name} with process ID ${this.id} exited.`)
+        console.log(`Window ${this.data.name} with process ID ${this.id} exited.`)
     }
 
 }
