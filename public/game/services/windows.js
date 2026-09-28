@@ -1,3 +1,5 @@
+import { log } from "./boot.js"
+
 export const activeWindows = []
 
 export function toggleWindow(wind){
@@ -31,14 +33,12 @@ export function showWindow(wind){
 }
 
 export function bringToFront(element) {
+    if(parseInt(getComputedStyle(document.body).getPropertyValue('--top-z-index')) == parseInt(getComputedStyle(element).zIndex)) return
     element.style.zIndex = parseInt(getComputedStyle(document.body).getPropertyValue('--top-z-index')) + 1;
     document.body.style.setProperty('--top-z-index', element.style.zIndex);
-    console.log('Bringing to front, new z-index:', toString(element.style.zIndex));
 }
 
 export function getAppWindows(app){
-    console.log("all windows: ", activeWindows)
-    console.log("Windows found for "+app+": ", activeWindows.filter(win => win.data.app))
     return activeWindows.filter(win => win.data.app === app)
 }
 
@@ -61,7 +61,7 @@ export class Window {
         this.drag()
         this.bringToFront()
 
-        console.log(`Window ${this.data.name} created with process ID ${this.id}`)
+        log(`Window ${this.data.name} created with process ID ${this.id}`, "sys")
     }
 
     enter(){
@@ -85,7 +85,7 @@ export class Window {
         let offsetX, offsetY;
         this.dom.addEventListener('mousedown', (e) => {
             bringToFront(this.dom);
-            if (e.target !== this.dom.querySelector('.window-header-container')) return;
+            if (!e.target.classList.contains('win-header')) return;
             isDragging = true;
             offsetX = e.clientX - this.dom.offsetLeft;
             offsetY = e.clientY - this.dom.offsetTop;
@@ -104,7 +104,7 @@ export class Window {
     exit(){
         this.dom.remove()
         activeWindows.splice(activeWindows.indexOf(this), 1)
-        console.log(`Window ${this.data.name} with process ID ${this.id} exited.`)
+        log(`Window ${this.data.name} with process ID ${this.id} exited.`, "sys")
     }
 
 }

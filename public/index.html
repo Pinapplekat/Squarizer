@@ -34,19 +34,17 @@
         </div>
     </div>
     <span id="coords"></span>
-    <div class="top-right hidden" id="topRight">
-        <button id="toggleCodespace">Code</button>
-        <button id="export">Export</button>
-        <button id="import">Import</button>
-        <button id="challenges">Challenges</button>
-    </div>
+    <template id="dockTemplate">
+        <div class="top-right" id="topRight">
 
+        </div>
+    </template>
     <div id="blocks" class="floating-window hidden">
 
     </div>
     <div id="objectiveContainer" class="floating-window hidden" style="color: white;">
         <p>
-        <h2>Objective:</h2> 
+        <h2>Objective:</h2>
         </p><i class="accuracy">Your Accuracy: 0.00%</i>
         <div id="challengeblocks">
 
@@ -75,9 +73,9 @@ return Math.abs(x)
 
     <template id="windowTemplate">
         <div class="floating-window hidden">
-            <div class="window-header-container">
-                <h2 class="window-title"></h2>
-                <div class="right-control-buttons">
+            <div class="window-header-container win-header">
+                <h2 class="window-title win-header"></h2>
+                <div class="right-control-buttons win-header">
                     <button class="close-window">x</button>
                 </div>
             </div>

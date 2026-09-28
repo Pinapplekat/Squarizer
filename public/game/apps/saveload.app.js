@@ -1,10 +1,11 @@
 import { Window, getAppWindows } from '../services/windows.js'
 import { downloadBlocks } from '../services/download.js'
 import { loadBlocks } from '../services/load.js'
+import { log } from '../services/boot.js'
 
 class SaveLoadWindow extends Window {
     constructor(name){
-        super({name})
+        super({name, app: "app.saveload"})
         this.init()
     }
 
@@ -13,7 +14,7 @@ class SaveLoadWindow extends Window {
         saveButton.innerText = 'Save'
         saveButton.addEventListener('click', () => {
             downloadBlocks(getAppWindows("app.preview")[0])
-            console.log('Game saved.')
+            log('Game saved.', "gam")
         })
 
         const loadButton = document.createElement('button')
