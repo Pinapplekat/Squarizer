@@ -3,15 +3,20 @@ import { Window } from "../services/windows.js"
 import { notify } from '../services/notify.js'
 
 export class PreviewApp extends Window {
-    constructor(name) {
-        super({ name, height: 1060, width: 1020, app: "app.preview" })
+    constructor(name, isChallenge, challengeData) {
+        super({ name, height: 1060, width: 1020, app: isChallenge? "app.preview.challenge" : "app.preview" })
         this.blockInfo = {
             previewFrom: null,
             list: null,
             code: null
         }
         this.init()
+        this.isChallenge = isChallenge? true : false
+        if(isChallenge) this.challengeData = challengeData
 
+        if(isChallenge && challengeData){
+            this.drawFromList(challengeData)
+        }
     }
 
     init() {
@@ -27,6 +32,10 @@ export class PreviewApp extends Window {
         `
 
         this.drawFromCode(code)
+        if(this.isChallenge){
+            console.log("Challenge", this.challengeData)
+            this.drawFromList(this.challengeData)
+        }
         this.enter()
     }
 
@@ -63,6 +72,7 @@ export class PreviewApp extends Window {
         list.forEach(el => {
             let nums = { x: Number(el.x), y: Number(el.y) }
             let index = (4 - nums.y) * 9 + (4 + nums.x)
+            if(this.isChallenge) console.log("cjallenge loading", nums)
             blockContainer.getElementsByClassName('block')[index].dataset.color = el.color
             blockContainer.getElementsByClassName('block')[index].style.backgroundColor = colors[el.color]
         });
@@ -75,6 +85,7 @@ export class PreviewApp extends Window {
         this.blockInfo.list = list
         this.blockInfo.previewFrom = "list"
         this.render(list)
+        return { "Error": null}
     }
 
     drawFromCode(code) {

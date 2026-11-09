@@ -26,5 +26,10 @@ export const appList = [
         name: "Save/Load",
         path: "../apps/saveload.app.js",
         app: "app.saveload"
+    },
+    {
+        name: "Challenge",
+        path: "../apps/challenges.app.js",
+        app: "app.preview.challenge"
     }
 ]
