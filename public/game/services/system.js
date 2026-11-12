@@ -19,11 +19,39 @@ function windowExists(app){
     else false
 }
 
+let isOver = false
+let wasOver = false
+function magnification(dock){
+    dock.addEventListener('pointermove', (e) => {
+        if(!isOver) return
+        wasOver = true
+        for (const app of dock.querySelectorAll(".app-in-dock")){
+            let diffToMouse = Math.abs((app.getBoundingClientRect().left+(app.getBoundingClientRect().width / 2)) - e.clientX)
+            if(diffToMouse < 200){
+                app.style.height = `${50+((200-diffToMouse)/10)}px`
+                app.style.width = `${50+((200-diffToMouse)/10)}px`
+            }
+        }
+    })
+    dock.addEventListener('pointerover', (e) => {
+        isOver = true
+    })
+    dock.addEventListener('pointerleave', (e) => {
+        isOver = false
+        if(!wasOver) return
+        for (const app of dock.querySelectorAll(".app-in-dock")){
+            app.style.height = ''
+            app.style.width = ''
+        }
+    })
+}
+
 export function init(){
     const dockDom = document.getElementById('dockTemplate').content.cloneNode(true).children[0]
 
     appList.forEach(async (app) => {
         const button = document.createElement('button')
+        button.className = "app-in-dock"
         button.innerText = app.name
         let initialization = await importModule(app.path)
         button.onclick = () => {
@@ -35,5 +63,9 @@ export function init(){
         }
         dockDom.appendChild(button)
     });
-    document.body.appendChild(dockDom)
+
+    const dockContainer = document.getElementById('appDock')
+    dockContainer.appendChild(dockDom)
+
+    magnification(dockContainer)
 }

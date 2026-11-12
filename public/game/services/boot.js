@@ -2,6 +2,9 @@ import {init as initMouse} from './cursor.js'
 import {init as initKeyboard} from '../handlers/keyboard.js'
 import {init as initSys} from '../services/system.js'
 import { debugMode } from '../state.js'
+import { activeWindows } from './windows.js'
+
+
 
 export function log(text, prefix){
     if(prefix == "dbg" && !debugMode) return
@@ -28,6 +31,12 @@ export function boot(){
     document.getElementById('startscreen').classList.add('hidden')
     log("DOM rendered", "rnd")
     log('Game boot complete.', 'sys')
+    if(debugMode){
+        document.addEventListener('keydown', (e) => {
+            if(!((!e.altKey && e.ctrlKey && !e.metaKey && !e.shiftKey) && e.key == "Backspace")) return
+            console.log(activeWindows)
+        })
+    }
 }
 
 window.onload = boot

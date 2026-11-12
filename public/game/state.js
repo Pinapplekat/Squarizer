@@ -2,7 +2,7 @@ import { colors as acolors } from "./resources/colors.js";
 
 export const colors = acolors
 
-export let debugMode = false;
+export let debugMode = true;
 
 export const blocks = []
 export const allBlocks = []

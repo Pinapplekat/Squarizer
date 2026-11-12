@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="game/services/boot.js" defer></script>
+    <!-- Bootstrap css for IDE -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- <script src="game.js" defer></script> -->
     <title>Blocks</title>
     <link rel="stylesheet" href="style.css">
@@ -34,11 +37,14 @@
         </div>
     </div>
     <span id="coords"></span>
-    <template id="dockTemplate">
-        <div class="top-right" id="topRight">
+    <div class="appdock" id="appDock">
+        <template id="dockTemplate">
+            <div class="top-right" id="topRight">
 
-        </div>
-    </template>
+            </div>
+        </template>
+    </div>
+    
     <div id="blocks" class="floating-window hidden">
 
     </div>

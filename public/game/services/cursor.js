@@ -55,6 +55,7 @@ function handleMovement(e) {
     position.y = e.clientY
     cursor.style.top = e.clientY + 'px'
     cursor.style.left = e.clientX + 'px'
+    if(activelyConformed) conform(e.target)
 }
 
 function handleOutlineMovement(e){

@@ -419,7 +419,6 @@ export class ChallengesApp extends PreviewApp {
     constructor(challenge) {
         super(challenge.name, true, challenge.render)
 
-        this.init()
     }
 }
 export function init() {

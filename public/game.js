@@ -1,3 +1,6 @@
+// !!! WARNING !!!
+// OLD, DEPRECATED CODE; FOR REFERENCE ONLY.
+
 var colors = {
     0: "#ff0000", 1: "#ff1900", 2: "#ff3300", 3: "#ff4c00", 4: "#ff6600",
     5: "#ff7f00", 6: "#ff9900", 7: "#ffb200", 8: "#ffcc00", 9: "#ffe500",

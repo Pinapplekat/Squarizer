@@ -4,7 +4,7 @@ import { notify } from '../services/notify.js'
 
 export class PreviewApp extends Window {
     constructor(name, isChallenge, challengeData) {
-        super({ name, height: 1060, width: 1020, app: isChallenge? "app.preview.challenge" : "app.preview" })
+        super({ name, height: 1060, width: 1020, app: isChallenge ? "app.preview.challenge" : "app.preview" })
         this.blockInfo = {
             previewFrom: null,
             list: null,
@@ -31,7 +31,7 @@ export class PreviewApp extends Window {
 
         `
 
-        this.drawFromCode(code)
+        if(!this.isChallenge) this.drawFromCode(code)
         if(this.isChallenge){
             console.log("Challenge", this.challengeData)
             this.drawFromList(this.challengeData)
@@ -72,7 +72,7 @@ export class PreviewApp extends Window {
         list.forEach(el => {
             let nums = { x: Number(el.x), y: Number(el.y) }
             let index = (4 - nums.y) * 9 + (4 + nums.x)
-            if(this.isChallenge) console.log("cjallenge loading", nums)
+            // if(this.isChallenge) console.log("challenge loading", nums + el.color)
             blockContainer.getElementsByClassName('block')[index].dataset.color = el.color
             blockContainer.getElementsByClassName('block')[index].style.backgroundColor = colors[el.color]
         });
