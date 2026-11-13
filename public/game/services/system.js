@@ -29,8 +29,9 @@ function magnification(dock){
         for (const app of dock.querySelectorAll(".app-in-dock")){
             let diffToMouse = Math.abs((app.getBoundingClientRect().left+(app.getBoundingClientRect().width / 2)) - e.clientX)
             if(diffToMouse < 200){
-                app.style.height = `${50+((200-diffToMouse)/10)}px`
-                app.style.width = `${50+((200-diffToMouse)/10)}px`
+                let scale = Math.round(50+((200-diffToMouse)/10))
+                app.style.height = `${scale}px`
+                app.style.width = `${scale}px`
             }
         }
     })
@@ -52,8 +53,19 @@ export function init(){
 
     appList.forEach(async (app) => {
         const button = document.createElement('button')
+        const btnImgCanvas = document.createElement('canvas')
+        btnImgCanvas.classList.add('app-image')
+        btnImgCanvas.width = 150
+        btnImgCanvas.height = 150
+        let ctx = btnImgCanvas.getContext('2d')
+        ctx.font = 'bold 75px Arial'
+        button.style.backgroundColor = `rgba(${Math.random()*255},${Math.random()*255},${Math.random()*255},1)`
+        ctx.fillStyle = 'rgba(255,255,255,1)'
+        ctx.textAlign = 'center'
+        ctx.textBaseline = 'middle'
+        ctx.fillText(app.name[0].toLocaleUpperCase(), 75, 80)
         button.className = "app-in-dock"
-        button.innerText = app.name
+        button.appendChild(btnImgCanvas)
         let initialization = await importModule(app.path)
         button.onclick = () => {
             if(windowExists(app.app)){

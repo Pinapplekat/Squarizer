@@ -74,15 +74,15 @@
 
 .block {
     background-color: rgb(41, 41, 41);
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     position: grid;
-    row-gap: 10px;
-    column-gap: 10px;
+    row-gap: 5px;
+    column-gap: 5px;
     transition: all 300ms;
     border: 0px white solid;
     border-radius: 3px;
-    font-size: 50px;
+    font-size: 25px;
     text-align: center;
     display: flex;
     align-items: center;
@@ -92,7 +92,7 @@
 }
 
 .block:hover{
-    outline: 3px solid white;
+    outline: 1px solid white;
 }
 
 .block:hover{
@@ -106,18 +106,18 @@
 .block-container,
 #challengeblocks {
     display: grid;
-    grid-template-columns: repeat(9, 110px);
-    grid-template-rows: repeat(9, 110px);
+    grid-template-columns: repeat(9, 55px);
+    grid-template-rows: repeat(9, 55px);
     position: relative !important;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 980px;
-    height: 980px;
+    width: 490px;
+    height: 490px;
     border-radius: 10px;
     box-sizing: initial;
     margin: 0;
-    padding: 10px;
+    padding: 5px;
 }
 
 html {
@@ -155,28 +155,29 @@ button {
 }
 
 .tooltip-app{
-    background-color: rgba(52, 52, 52, 0.821);
-    height: 15px;
+    position: absolute;
+
+    background-color: rgba(52, 52, 52, 0.582);
+    height: 5px;
     width: fit-content;
     text-align: center;
     color: rgba(255, 255, 255, 0.853);
-    display: flex;
+
+    display: none;
     justify-content: center;
     align-items: center;
+
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 15px;
     backdrop-filter: blur(5px);
     z-index: 99;
-    position:absolute;
     border-bottom: 0.5px solid rgba(226, 226, 226, 0.461);
     border-top: 0.5px solid rgba(226, 226, 226, 0.461);
     pointer-events: none;    
+    
 }
 .tooltip-app .tooltip-text{
     position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     font-size: 12px;
 }
 
@@ -234,6 +235,7 @@ button {
     height: 50px;
     min-width: 50px;
     min-height: 50px;
+    max-height: 66px;
     border-radius: 10px;
     overflow-x: hidden;
     /* flex: 1; */
@@ -241,6 +243,12 @@ button {
     transition: all 75ms;
     border-bottom: 1px solid rgba(226, 226, 226, 0.461);
     border-top: 1px solid rgba(226, 226, 226, 0.461);
+    padding: 0;
+}
+
+.app-image{
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -309,13 +317,13 @@ button:hover {
 }
 
 #objectiveContainer {
-    width: 1010px;
-    height: 1100px;
+    width: 505px;
+    height: 550px;
     padding: 20px;
 }
 #challengeblocks {
-    width: 980px;
-    height: 980px;
+    width: 490px;
+    height: 490px;
     padding: 10px;
     top: 100%;
     transform: translate(-50%, -100%);

@@ -4,7 +4,7 @@ import { notify } from '../services/notify.js'
 
 export class PreviewApp extends Window {
     constructor(name, isChallenge, challengeData) {
-        super({ name, height: 1060, width: 1020, app: isChallenge ? "app.preview.challenge" : "app.preview" })
+        super({ name, height: 545, width: 400, app: isChallenge ? "app.preview.challenge" : "app.preview" })
         this.blockInfo = {
             previewFrom: null,
             list: null,
