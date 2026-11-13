@@ -1,6 +1,7 @@
 import { appList } from "../state.js";
 import { log } from "./boot.js";
 import { getAppWindows, showWindow } from "./windows.js";
+import { showTip, hideTip } from "./tooltip.js";
 
 export async function importModule(path){
     try{
@@ -60,6 +61,12 @@ export function init(){
                 return log("Window already exists, opening...", "sys")
             }
             else initialization()
+        }
+        button.onmousemove = () => {
+            showTip(app.name, button)
+        }
+        button.onmouseleave = () => {
+            hideTip()
         }
         dockDom.appendChild(button)
     });
