@@ -20,7 +20,7 @@ export class IDE extends Window {
         })
 
         const instr = document.createElement("p")
-        instr.innerHTML = "Press <code>SHIFT+ENTER</code> to run your code."
+        instr.innerHTML = "Press <code>CTRL+ENTER</code> to run your code."
         instr.style.color = "white"
         this.dom.querySelector('.window-content').appendChild(ideTextArea)
         this.dom.querySelector('.window-content').appendChild(instr)
