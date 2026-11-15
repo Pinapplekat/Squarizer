@@ -22,6 +22,8 @@ function cursorHandler() {
 function handleMouseOver(e) {
     if (e.target.classList.contains('block') || e.target.tagName == "BUTTON") {
         conform(e.target)
+    }else if(e.target.closest("BUTTON")){
+        conform(e.target.closest("BUTTON"))
     } else {
         unconform()
         if (e.target.tagName == "TEXTAREA") {

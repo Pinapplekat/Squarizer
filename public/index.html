@@ -86,10 +86,12 @@ return Math.abs(x)
     <template id="windowTemplate">
         <div class="floating-window hidden">
             <div class="window-header-container win-header">
-                <h2 class="window-title win-header"></h2>
                 <div class="right-control-buttons win-header">
-                    <button class="close-window">x</button>
+                    <button class="close-window"></button>
+                    <button class="min-window disabled"></button>
+                    <button class="max-window disabled"></button>
                 </div>
+                <h2 class="window-title win-header"></h2>
             </div>
             <div class="window-content">
 
